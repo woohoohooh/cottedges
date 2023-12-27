@@ -1,5 +1,7 @@
 from django.contrib import admin
-from .models import Post, Comment, Company, Review, Guides, About, SecurityScore, TeamScore, ProductScore, Advantage, TagPosts, TagRating
+from .models import Post, Comment, Company, Review, Guides, About, SecurityScore, TeamScore, ProductScore, Advantage, TagPosts, TagRating, Booking
+
+admin.site.register(Booking)
 
 class SecurityScoreInline(admin.StackedInline):
     model = SecurityScore

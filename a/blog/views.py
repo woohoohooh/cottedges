@@ -1,12 +1,29 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Post, Comment, Company, Advantage, Review, Guides, About, TagRating, TagPosts
+from .models import Post, Comment, Company, Advantage, Review, Guides, About, TagRating, TagPosts, Booking
 from django.db.models import F, Sum
+from .forms import BookingForm
+
+def thanks(request):
+    return render(request, 'blog/thanks.html')
+
+def booking(request):
+    bookings = Booking.objects.all()
+    form = BookingForm(request.POST)
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            return redirect('thanks')
+        else:
+            form = BookingForm()
+    return render(request, 'blog/booking.html', {'form': form})
+
+def map(request):
+    return render(request, 'blog/map.html')
 
 def tag_result(request, tag):
     tag_obj = TagPosts.objects.get(name=tag)
     posts_with_tag = Post.objects.filter(tag_posts=tag_obj)
     return render(request, 'blog/tag_result.html', {'tag': tag_obj, 'posts': posts_with_tag})
-
 
 def guides(request):
     guides = Guides.objects.all()
