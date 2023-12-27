@@ -1,0 +1,86 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+<div class="container"><br><br>
+    <div class="row">
+        <div class="col-md-9">
+            <div class="main-content">
+    <a class="icon-link" href="{% url 'post_list' %}">&larr; Crypto News</a><br>
+    <h3 class="p-4 mb-3 bg-body-tertiary rounded">{{ post.title }}</h3>
+    <div class="row">
+        <div class="col-md-8">
+            {% if post.tag_posts %}
+                <div class="tags">
+                    {% for tag in post.tag_posts.all %}
+                        <div class="btn btn-light btn-sm mb-1">{{ tag }}</div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+        <div class="col-md-4 text-right">
+            <p class="btn btn-light btn-sm mb-1">{{ post.pub_date|date:"M j, Y" }}</p>
+        </div>
+    </div>
+    <p>{{ post.content|linebreaksbr }}<br><br>
+
+    <br><br><h3>Comments</h3><br>
+
+    {% for comment in comments %}
+    <div class="p-4 p-md-5 border rounded-3 bg-body-tertiary">
+        <p><strong>{{ comment.name }}</strong> on {{ comment.created_at|date:"M d, Y" }}</p>
+        <p>{{ comment.content }}</p>
+    </div><br>
+    {% empty %}
+
+        <p>No comments yet.</p>
+    {% endfor %}<br><br>
+
+    <h3>Leave a comment</h3><br>
+    <form method="post" action="{% url 'add_comment' post.id %}">
+    {% csrf_token %}
+    <input type="hidden" name="post_id" value="{{ post.id }}">
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" name="name" required>
+    </div>
+    <div class="form-group">
+        <label for="content">Comment</label>
+        <textarea class="form-control" id="content" name="content" required></textarea>
+    </div><br>
+    <button type="submit" class="btn btn-outline-secondary">Submit</button>
+</form>
+
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="post-tags">
+    <div class="post" align="center">
+        {% for tag in tags_posts %}
+            <code><a class="btn btn-light btn-sm mb-1" href="{% url 'tag_result' tag=tag %}">{{ tag }}</a></code>
+        {% endfor %}
+    </div><br>
+
+            </div>
+            <!-- TradingView Widget BEGIN -->
+            <div class="tradingview-widget-container">
+                <div class="tradingview-widget-container__widget"></div>
+                <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-technical-analysis.js" async>
+                {
+                    "interval": "1M",
+                    "width": "100%",
+                    "isTransparent": false,
+                    "height": "100%",
+                    "symbol": "BINANCE:BTCUSDT",
+                    "showIntervalTabs": true,
+                    "displayMode": "single",
+                    "locale": "en",
+                    "colorTheme": "light"
+                }
+                </script>
+            </div>
+            <!-- TradingView Widget END -->
+        </div>
+    </div>
+</div><br><br>
+{% endblock %}

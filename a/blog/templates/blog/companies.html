@@ -1,0 +1,36 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+<div class="container"><br><br>
+<h2 class="p-4 mb-3 bg-body-tertiary rounded">Invest rating</h2><br><br>
+    <table>
+        <tr>
+            <th><big>PROJECTS</big><br><br></th>
+            <th><big></big><br><br></th>
+            <th align="right"><big>RATING</big><br><br></th>
+        </tr>
+        {% for company in companies %}
+        <tr>
+            <td><h5><b><a class="icon-link" href="{% url 'company_detail' company.id %}">{{ company.name }}</a></b></h5></td>
+            <td><big>
+            {% for tag in company.tag_rating.all %}
+                <a class="btn btn-light btn-sm mb-1" href="{% url 'tag_result' tag=tag %}">{{ tag }}</a>
+            {% endfor %}</big></td>
+            <td><big><b>{{ company.rating }}</b></big></td>
+        </tr>
+        <tr>
+            <td colspan="6">
+                <p class="lead">{{ company.description }}</p>
+                {% if not forloop.last %}
+                <tr>
+                    <td colspan="6">
+                        <hr class="my-4">
+                    </td>
+                </tr>
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}
