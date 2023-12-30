@@ -4,6 +4,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
+    path('save_screen_width/', views.save_screen_width, name='save_screen_width'),
     path('guides/', views.guides, name='guides'),
     path('about/', views.about, name='about'),
     path('', views.map, name='map'),

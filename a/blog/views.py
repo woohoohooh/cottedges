@@ -2,6 +2,10 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .models import Post, Comment, Company, Advantage, Review, Guides, About, TagRating, TagPosts, Booking
 from django.db.models import F, Sum
 from .forms import BookingForm
+from django.http import JsonResponse
+
+def save_screen_width(request):
+    return render(request, 'blog/your_template.html')
 
 def thanks(request):
     return render(request, 'blog/thanks.html')
