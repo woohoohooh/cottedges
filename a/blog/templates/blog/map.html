@@ -18,9 +18,18 @@
             z-index: 2;
             text-align: center;
         }
+        .menu-container5 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+            text-align: center;
+            font-size: 21px;
+        }
         .menu-container2 {
             position: absolute;
-            top: 95%;
+            top: 96%;
             left: 50%;
             transform: translate(-50%, -50%);
             z-index: 2;
@@ -28,7 +37,7 @@
         }
         .menu-container3 {
             position: absolute;
-            top: 195%;
+            top: 196%;
             left: 50%;
             transform: translate(-50%, -50%);
             z-index: 2;
@@ -42,21 +51,22 @@
             z-index: 2;
             text-align: center;
         }
-        .menu-container5 {
+        .menu-container6 {
             position: absolute;
-            top: 296%;
+            top: 250%;
             left: 50%;
             transform: translate(-50%, -50%);
             z-index: 2;
             text-align: center;
         }
-        .menu-container6 {
+        .menu-container7 {
             position: absolute;
-            top: 350%;
+            top: 107%;
             left: 50%;
             transform: translate(-50%, -50%);
             z-index: 2;
             text-align: center;
+            font-size: 21px;
         }
 
         nav ul {
@@ -74,7 +84,7 @@
             display: block;
             color: #fff;
             text-decoration: none;
-            font-size: 16px;
+            font-size: 17px;
         }
 
         nav a:hover {
@@ -246,6 +256,14 @@
             text-align: center;
             font-size: 136px;
         }
+        .menu-container5 {
+            position: absolute;
+            top: 10%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+            text-align: center;
+        }
         .menu-container2 {
             position: absolute;
             top: 95%;
@@ -266,14 +284,6 @@
         .menu-container4 {
             position: absolute;
             top: 150%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 2;
-            text-align: center;
-        }
-        .menu-container5 {
-            position: absolute;
-            top: 296%;
             left: 50%;
             transform: translate(-50%, -50%);
             z-index: 2;
@@ -501,19 +511,29 @@
             <img src="{% static 'img/logo.png' %}" width="211" alt="Logo">
         </a>
     </div>
+    <div class="menu-container5">
+        <span style="color: white; font-family: Calibri">«Долина Сенгилей» — место, где дом становится частью природы, а природа – вашим домом.</span>
+    </div>
     <div class="menu-container2">
         <nav>
             <ul>
-                <li><a href="#about">О поселке</a>
+                <li><a href="#map">Карта</a>
                 <a href="#about">↓</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="menu-container7">
+        <nav>
+            <ul>
+                <span style="color: white; font-family: Calibri">Карта участков коттеджного поселка</span>
             </ul>
         </nav>
     </div>
 </div>
 
-    <img id="header-image" src="{% static 'pics/main.webp' %}">
+    <img id="header-image" src="{% static 'img2/7.jpg' %}">
 
-    <section id="about">
+<!--    <section id="about">
 
     <img id="header-image3" src="{% static 'pics/11.png' %}">
 
@@ -537,16 +557,17 @@
             </ul>
         </nav>
     </div>
-</div>
-    <div class="menu-container5">
+</div></section>-->
+
+    <div class="menu-container3">
         <nav>
             <ul>
-                <li><a href="#map">Контакты</a>
-                <a href="#map">↓</a></li>
+                <li><a href="#contacts">Контакты</a>
+                <a href="#contacts">↓</a></li>
             </ul>
         </nav>
     </div>
-    </section>
+</div>
 
 
 
@@ -616,9 +637,9 @@
 <img onclick="toggleInfoBlock(54)" src="{% static 'i/54.svg' %}" style="left: 597.049px; top: 742.074px;"/>
 <img onclick="toggleInfoBlock(55)" src="{% static 'i/55.svg' %}" style="left: 568.027px; top: 742.475px;"/>
 <img onclick="toggleInfoBlock(56)" src="{% static 'i/56.svg' %}" style="left: 539.301px; top: 742.865px;"/>
-<img onclick="toggleInfoBlock(57)" src="{% static 'i/57.svg' %}" style="left: 509.883px; top: 742.768px;"/>
-<img onclick="toggleInfoBlock(58)" src="{% static 'i/58.svg' %}" style="left: 480.964px; top: 742.768px;"/>
-<img onclick="toggleInfoBlock(59)" src="{% static 'i/59.svg' %}" style="left: 452.103px; top: 742.977px;"/>
+<img class="sold" onclick="toggleInfoBlock(57)" src="{% static 'i/57.svg' %}" style="left: 509.883px; top: 742.768px;"/>
+<img class="sold" onclick="toggleInfoBlock(58)" src="{% static 'i/58.svg' %}" style="left: 480.964px; top: 742.768px;"/>
+<img class="sold" onclick="toggleInfoBlock(59)" src="{% static 'i/59.svg' %}" style="left: 452.103px; top: 742.977px;"/>
 <img onclick="toggleInfoBlock(60)" src="{% static 'i/60.svg' %}" style="left: 422.94px; top: 743.16px;"/>
 <img onclick="toggleInfoBlock(61)" src="{% static 'i/61.svg' %}" style="left: 393.778px; top: 743.16px;"/>
 <img onclick="toggleInfoBlock(62)" src="{% static 'i/62.svg' %}" style="left: 360.24px; top: 743.258px;"/>
@@ -629,9 +650,9 @@
 <img onclick="toggleInfoBlock(67)" src="{% static 'i/67.svg' %}" style="left: 596.656px; top: 691.68px;"/>
 <img onclick="toggleInfoBlock(68)" src="{% static 'i/68.svg' %}" style="left: 567.93px; top: 692.107px;"/>
 <img onclick="toggleInfoBlock(69)" src="{% static 'i/69.svg' %}" style="left: 538.411px; top: 692.107px;"/>
-<img onclick="toggleInfoBlock(70)" src="{% static 'i/70.svg' %}" style="left: 509.69px; top: 692.107px;"/>
-<img onclick="toggleInfoBlock(71)" src="{% static 'i/71.svg' %}" style="left: 480.866px; top: 692.107px;"/>
-<img onclick="toggleInfoBlock(72)" src="{% static 'i/72.svg' %}" style="left: 451.447px; top: 692.107px;"/>
+<img class="sold" onclick="toggleInfoBlock(70)" src="{% static 'i/70.svg' %}" style="left: 509.69px; top: 692.107px;"/>
+<img class="sold" onclick="toggleInfoBlock(71)" src="{% static 'i/71.svg' %}" style="left: 480.866px; top: 692.107px;"/>
+<img class="sold" onclick="toggleInfoBlock(72)" src="{% static 'i/72.svg' %}" style="left: 451.447px; top: 692.107px;"/>
 <img onclick="toggleInfoBlock(73)" src="{% static 'i/73.svg' %}" style="left: 422.774px; top: 692.107px;"/>
 <img onclick="toggleInfoBlock(74)" src="{% static 'i/74.svg' %}" style="left: 393.778px; top: 692.107px;"/>
 <img onclick="toggleInfoBlock(75)" src="{% static 'i/75.svg' %}" style="left: 363.265px; top: 692.107px;"/>
@@ -1502,23 +1523,6 @@
                     <a href="{% url 'booking' %}">
                         <button id="bookingButton">Перезвоните мне</button>
                     </a>
-    </div>
-    <div class="menu-container3">
-        <nav>
-            <ul>
-                <li><a href="#map">Карта</a>
-                <a href="#map">↓</a></li>
-            </ul>
-        </nav>
-    </div>
-</div>
-    <div class="menu-container5">
-        <nav>
-            <ul>
-                <li><a href="#contacts">Контакты</a>
-                <a href="#contacts">↓</a></li>
-            </ul>
-        </nav>
     </div>
     </section>
 
