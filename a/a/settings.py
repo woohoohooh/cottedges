@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-q-)^wo0!bh6b2gmi!h0j#9e8h4=o1ef)z$@zxi)+r4687tn*eq
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['www.sengil.life']
+ALLOWED_HOSTS = ['www.sengil.life', 'sengil.life']
 
 
 # Application definition
@@ -121,7 +121,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'css/static')]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 urlpatterns = [
     # Ваши другие URL-шаблоны здесь
 ]
