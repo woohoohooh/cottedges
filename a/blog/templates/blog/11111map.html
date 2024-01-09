@@ -1,0 +1,482 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+{% block content %}
+    <style>
+    @media (min-width: 1835px) {
+    body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+    section {
+    }
+        .menu-container {
+            position: absolute;
+            top: 0%;
+            left: 43.5%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+            text-align: center;
+        }
+        .menu-container5 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+            text-align: center;
+            font-size: 21px;
+        }
+        .menu-container2 {
+            position: absolute;
+            top: 96%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+            text-align: center;
+        }
+        .menu-container3 {
+            position: absolute;
+            top: 196%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+            text-align: center;
+        }
+        .menu-container4 {
+            position: absolute;
+            top: 150%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+            text-align: center;
+        }
+        .menu-container6 {
+            position: absolute;
+            top: 250%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+            text-align: center;
+            font-size: 30px;
+        }
+        .menu-container7 {
+            position: absolute;
+            top: 107%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+            text-align: center;
+            font-size: 21px;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center; /* Центрируем элементы по горизонтали */
+        }
+
+        nav li {
+            margin-right: 20px;
+        }
+
+        nav a {
+            display: block;
+            color: #fff;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+
+        p {
+            margin: 0;
+            font-size: 17px;
+            font-family: Calibri, sans-serif;
+        }
+
+        .svg-container {
+            position: relative;
+        }
+
+        .svg-container img {
+            position: absolute;
+            transition: filter 0.3s ease;
+        }
+
+        .svg-container img.sold {
+            filter: brightness(70%) sepia(50%) hue-rotate(25deg) saturate(40%);
+            pointer-events: none;
+        }
+
+        .svg-container img.sold2 {
+            pointer-events: none;
+        }
+
+        .svg-container img:hover {
+            filter: brightness(70%) sepia(50%) hue-rotate(100deg) saturate(50%);
+        }
+
+        #info-block {
+        display: none;
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%; /* Adjust the width based on your design */
+        max-width: 550px; /* Set a max-width to prevent it from becoming too wide */
+        background-color: #fff;
+        border-left: 1px solid #ccc;
+        padding: 20px;
+        z-index: 999;
+        font-size: 22px;
+        transition: opacity 0.5s ease;
+        }
+
+        #info-block .cross {
+            width: 30px;
+            height: 30px;
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            cursor: pointer;
+        }
+
+        #info-block .line {
+            width: 100%;
+            height: 2px;
+            background-color: #333;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform-origin: center;
+            transition: background-color 0.3s ease;
+        }
+
+        #info-block .line:nth-child(1) {
+            transform: rotate(45deg);
+        }
+
+        #info-block .line:nth-child(2) {
+            transform: rotate(-45deg);
+        }
+
+        #info-block .cross:hover .line {
+            background-color: #555;
+        }
+
+        /* Стили для изображения в шапке */
+        .svg-container2 img {
+            filter: brightness(70%) sepia(50%) hue-rotate(100deg) saturate(50%);
+        }
+
+
+        #info-content {
+            margin-top: 20px;
+            transition: opacity 0.5s ease;
+        }
+
+        #bookingButton {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 2px;
+        }
+
+        /* Стили для изображения в шапке */
+        #header-image {
+            width: 100%;
+            height: 100vh;
+            object-fit: cover;
+            display: block; /* Убеждаемся, что изображение является блочным элементом */
+            position: relative; /* Устанавливаем позицию для создания контекста для абсолютно позиционированных элементов внутри */
+        }
+        #header-image2 {
+            width: 100%;
+            height: 100vh;
+            object-fit: cover;
+            display: block; /* Убеждаемся, что изображение является блочным элементом */
+            position: relative; /* Устанавливаем позицию для создания контекста для абсолютно позиционированных элементов внутри */
+        }
+        #header-image3 {
+            width: 100%;
+            height: 100vh;
+            object-fit: cover;
+            display: block; /* Убеждаемся, что изображение является блочным элементом */
+            position: relative; /* Устанавливаем позицию для создания контекста для абсолютно позиционированных элементов внутри */
+        }
+        #header-image4 {
+            width: 100%;
+            height: 100vh;
+            object-fit: cover;
+            display: block; /* Убеждаемся, что изображение является блочным элементом */
+            position: relative; /* Устанавливаем позицию для создания контекста для абсолютно позиционированных элементов внутри */
+        }
+
+        /* Стили для логотипа */
+        .col-md-4 a img {
+            position: absolute; /* Позиционируем логотип абсолютно относительно родительского блока */
+            top: 10px; /* Верхний отступ (на ваш выбор) */
+            left: 10px; /* Левый отступ (на ваш выбор) */
+            z-index: 2; /* Устанавливаем z-index больше, чем у изображения, чтобы логотип был поверх него */
+        }
+    }
+
+
+
+
+    </style>
+    <div id="info-block">
+        <div class="cross" onclick="closeInfoBlock()">
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+        <div id="info-content"></div>
+    </div>
+
+<!-- Изображение в шапке -->
+
+<div class="col-md-4">
+    <div class="menu-container">
+        <a href="{% url 'map' %}">
+            <img src="{% static 'img/logo.png' %}" width="211" alt="Logo">
+        </a>
+    </div>
+    <div class="menu-container5">
+        <span style="color: white; font-family: Calibri">«Долина Сенгилей» — место, где дом становится частью природы, а природа – вашим домом.</span>
+    </div>
+    <div class="menu-container2">
+        <nav>
+            <ul>
+                <li><a href="#map">Карта</a>
+                <a href="#about">↓</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="menu-container7">
+        <nav>
+            <ul>
+                <span style="color: white; font-family: Calibri">Карта участков коттеджного поселка</span>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+    <img id="header-image" src="{% static 'img2/7.jpg' %}">
+
+<!--    <section id="about">
+
+    <img id="header-image3" src="{% static 'pics/11.png' %}">
+
+<div class="col-md-4">
+    <div class="menu-container4">
+       <p style="color: white; font-size: 24px;">
+           «Долина Сенгилей» – уникальный посёлок, где каждый камень и дерево несут в себе историю единой архитектурной концепции. Мы не просто строим дома, мы создаём пространство, наполненное вдохновением и уютом.
+
+В основе наших 5 типовых проектов – не просто стандартные планы, а немецкие технологии, гармонично воплощенные в каждом доме. Когда вы выбираете «Долину Сенгилей», вы получаете не просто крышу над головой, а уникальный дом, олицетворяющий современный комфорт.
+
+Наша инфраструктура – не просто набор удобств, это оазис для настоящего наслаждения жизнью. Парки, аллеи, искусственные водоемы – всё, чтобы ваша жизнь была яркой и насыщенной. И только у нас вы найдете единые правила проживания, которые создают гармонию в каждом уголке нашего посёлка.
+
+Мы не просто продаём землю, мы предлагаем вам участок в части будущего, где нет места для "архитектурной солянки" и нелепых заборов. В «Долине Сенгилей» каждый дом – это произведение искусства, а единый архитектурный код создает ясное видение завтрашнего дня. Вместе мы строим не просто дома, а целое сообщество, где живут те, кто разделяет ваши ценности и взгляды на прекрасное. Добро пожаловать в мир, где каждый момент – это часть уникальной истории «Долины Сенгилей».
+       </p>
+    </div>
+    <div class="menu-container3">
+        <nav>
+            <ul>
+                <li><a href="#map">Карта</a>
+                <a href="#map">↓</a></li>
+            </ul>
+        </nav>
+    </div>
+</div></section>-->
+
+    <div class="menu-container3">
+        <nav>
+            <ul>
+                <li><a href="#contacts">Контакты</a>
+                <a href="#contacts">↓</a></li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+
+
+    <div class="svg-container" id="svg-container">
+    <div class="svg-container2">
+        <div class="map-container">
+            <section id="map">
+            <img id="header-image2" src="{% static 'pics/9.png' %}">
+
+            </section>
+</div></div>
+
+<img class="sold2" onclick="toggleInfoBlock(0)" src="{% static 'i/bg23.svg' %}" style="left: 135.055px; top: 30.5px;"/>
+<img onclick="toggleInfoBlock(1)" src="{% static 'i/1.svg' %}" style="left: 1390.6px; top: 765.67px;"/>
+
+    </div>
+
+    <script>
+        var infoBlockVisible = false;
+        var selectedSvgIndex = null;
+
+        function markAsSold(element) {
+            element.classList.add('sold');
+            closeInfoBlock();
+        }
+
+        function toggleInfoBlock(index) {
+            var infoBlock = document.getElementById('info-block');
+            var contentContainer = document.getElementById('info-content');
+
+            if (infoBlockVisible && index === selectedSvgIndex) {
+                closeInfoBlock();
+            } else {
+                // Загружаем данные из встроенного JSON
+                var data = [
+                    {"f": "1", "c": "26:11:070401:694", "a": "9.95", "d": "20.54" },
+                ];
+
+                var item = data.find(svg => svg.f === index.toString());
+                if (item) {
+                    var content = `<h5><b>Земельный участок № ${item.f}</b></h2><hr>
+
+                    <div style="display: flex; justify-content: space-between;">
+                        <p>Площадь <b>${item.a}</b> сот.<br>
+                        Фасад <b>${item.d}</b> м.</p>
+                        <p>Кадастровый № <b>${item.c}</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                    </div><hr>
+                    <table>
+                        <tr>
+                            <td>
+                                <p style="display: inline-block; margin: 0;"><b>Hauswerk-135</b><br><img src="{% static 'pics/1.jpg' %}" width="250"></p>
+                                <div style="width: 250px; display: flex; justify-content: space-between;">
+                                    <p style="margin: 0; text-align: center;">от 11 790 000 ₽</p>
+                                    <p style="margin: 0; text-align: center;">135 м²</p>
+                                </div>
+                            </td>
+                            <td style="padding: 15px;">
+                                <p style="display: inline-block; margin: 0;"><b>Hauswerk-150</b><br><img src="{% static 'pics/2.jpg' %}" width="250"></p>
+                                <div style="width: 250px; display: flex; justify-content: space-between;">
+                                    <p style="margin: 0; text-align: center; font-size: 17px">от 14 590 000 ₽</p>
+                                    <p style="margin: 0; text-align: center; font-size: 17px">150 м²</p>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p style="display: inline-block; margin: 0;"><b>Sommerhaus</b><br><img src="{% static 'pics/3.jpg' %}" width="250"></p>
+                                <div style="width: 250px; display: flex; justify-content: space-between;">
+                                    <p style="margin: 0; text-align: center; font-size: 17px">от 10 315 000 ₽</p>
+                                    <p style="margin: 0; text-align: center; font-size: 17px">93 м²</p>
+                                </div>
+                            </td>
+                            <td style="padding: 15px;">
+                                <p style="display: inline-block; margin: 0;"><b>Urman-140</b><br><img src="{% static 'pics/4.jpg' %}" width="250"></p>
+                                <div style="width: 250px; display: flex; justify-content: space-between;">
+                                    <p style="margin: 0; text-align: center; font-size: 17px">от 13 464 000 ₽</p>
+                                    <p style="margin: 0; text-align: center; font-size: 17px">140 м²</p>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p style="display: inline-block; margin: 0;"><b>Urman-169</b><br><img src="{% static 'pics/5.jpg' %}" width="250"></p>
+                                <div style="width: 250px; display: flex; justify-content: space-between;">
+                                    <p style="margin: 0; text-align: center; font-size: 17px">от 16 405 000 ₽</p>
+                                    <p style="margin: 0; text-align: center; font-size: 17px">169 м²</p>
+                                </div>
+                            </td>
+                            <td style="padding: 82px;">
+                                <p style="display: inline-block; margin: 0;">&nbsp;</p>
+                                <div style="width: 250px; display: flex; justify-content: space-between;">
+                                    <p style="margin: 0; text-align: center; font-size: 17px">&nbsp;</p>
+                                    <p style="margin: 0; text-align: center; font-size: 17px">&nbsp;</p>
+                                </div>
+                            </td>
+                        </tr>
+                    </table><hr>
+                    <a href="{% url 'booking' %}">
+                        <button id="bookingButton">Забронировать</button>
+                    </a>
+
+
+                    `;
+
+                    contentContainer.innerHTML = content;
+
+                    // Устанавливаем координаты и показываем блок
+                    var currentSvg = document.getElementById('svg-container').children[index - 1];
+                    setPosition(currentSvg, { x: currentSvg.style.left, y: currentSvg.style.top });
+
+                    infoBlock.style.display = 'block';
+                    infoBlockVisible = true;
+                    selectedSvgIndex = index;
+
+                    // Trigger a reflow to enable the transition
+                    void infoBlock.offsetWidth;
+                    infoBlock.style.opacity = '1';
+                    contentContainer.style.opacity = '1';
+                } else {
+                    closeInfoBlock();
+                }
+            }
+        }
+
+        function setPosition(img, coordinates) {
+            img.style.left = coordinates.x;
+            img.style.top = coordinates.y;
+        }
+
+        function closeInfoBlock() {
+            var infoBlock = document.getElementById('info-block');
+            infoBlock.style.opacity = '0';
+            document.getElementById('info-content').style.opacity = '0';
+
+            setTimeout(function() {
+                infoBlock.style.display = 'none';
+                infoBlockVisible = false;
+                selectedSvgIndex = null;
+            }, 500); // Wait for the transition to complete
+        }
+    </script>
+
+<section id="contacts">
+
+    <img id="header-image4" src="{% static 'pics/15.png' %}">
+
+<div class="col-md-4">
+    <div class="menu-container6">
+       <span style="color: white">
+           ДНП «Долина Сенгилей»<br><br>
+           Ставропольский край, г. Ставрополь
+       </span><br><br>
+                    <a href="{% url 'booking' %}">
+                        <button id="bookingButton">Перезвоните мне</button>
+                    </a>
+    </div>
+    </section>
+
+
+    </div>
+<script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+{% endblock %}

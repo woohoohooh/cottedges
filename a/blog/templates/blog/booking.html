@@ -6,19 +6,25 @@
     <h2 class="mb-4">Форма заявки</h2>
 
     <!-- Booking Form with Bootstrap styling -->
-    <form method="post" action="{% url 'booking' %}" class="form">
-        {% csrf_token %}
-        {{ form.name.label_tag }}
-        {{ form.name }}<br><br>
-        {{ form.phone.label_tag }}
-        {{ form.phone }}<br><br>
-        {{ form.email.label_tag }}
-        {{ form.email }}<br><br>
-        {{ form.comment.label_tag }}
-        {{ form.comment }}<br><br>
+    <form method="post" action="{% url 'booking' %}">
+    {% csrf_token %}
 
-        <button type="submit" class="btn btn-primary mt-3">Забронировать</button>
-    </form>
+    <div class="form-column">
+        <div>{{ form.name.label_tag }}</div>
+        <div>{{ form.name }}</div><br>
+        <div>{{ form.phone.label_tag }}</div>
+        <div>{{ form.phone }}</div><br>
+        <div>{{ form.email.label_tag }}</div>
+        <div>{{ form.email }}</div><br>
+        <div>{{ form.comment.label_tag }}</div>
+        <div>{{ form.comment }}</div>
+        <br>
+    </div>
+
+    <div style="width: 100%; margin-top: 20px;">
+        <button type="submit">Забронировать</button>
+    </div>
+</form>
 </div>
 
 {% endblock %}

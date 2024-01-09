@@ -22,7 +22,15 @@ def booking(request):
     return render(request, 'blog/booking.html', {'form': form})
 
 def map(request):
-    return render(request, 'blog/map.html')
+    bookings = Booking.objects.all()
+    form = BookingForm(request.POST)
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            return redirect('thanks')
+        else:
+            form = BookingForm()
+    return render(request, 'blog/map.html', {'form': form})
 
 def tag_result(request, tag):
     tag_obj = TagPosts.objects.get(name=tag)
